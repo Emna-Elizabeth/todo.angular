@@ -47,17 +47,12 @@ export class HomeComponent {
 
 disabled:boolean=false;
 
-  ngOnInit(){
-    this.todos=this.apiService.getApiUrl().subscribe((res:any)=>{
-      this.dataSource.data=res;
-      
-      console.log(this.dataSource.data)
-      console.log(res);
-    })
-
-  
-  }
-
+ngOnInit() {
+  this.apiService.getApiUrl().subscribe((res: ToDo[]) => {
+    this.todos = res;
+    this.dataSource.data = this.todos;
+  });
+}
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
