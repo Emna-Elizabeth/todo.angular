@@ -6,6 +6,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ApiService } from '../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 
@@ -23,7 +25,7 @@ export interface PeriodicElement {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatTableModule, MatCheckboxModule,CommonModule],
+  imports: [MatTableModule, MatCheckboxModule,CommonModule,MatIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
