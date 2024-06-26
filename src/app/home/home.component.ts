@@ -11,12 +11,11 @@ import {MatIconModule} from '@angular/material/icon';
 
 
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface ToDo {
+  title: string;
+  id:number;
   completed:boolean;
+
 }
 
 
@@ -36,15 +35,15 @@ export interface PeriodicElement {
 
 export class HomeComponent {
 
-  todos: any[] = [];
+  todos: ToDo[] = [];
 
 
-  constructor(private httpClient: HttpClient,private apiService: ApiService) { }
+  constructor(private apiService: ApiService) { }
 
 
   displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>();
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  dataSource = new MatTableDataSource<ToDo>(this.todos);
+  selection = new SelectionModel<ToDo>(true, []);
 
 disabled:boolean=false;
 
